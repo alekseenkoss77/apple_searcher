@@ -1,7 +1,7 @@
 require "apple_searcher/version"
 require "apple_searcher/errors"
 require "apple_searcher/parser"
-require "apple_searcher/devise"
+require "apple_searcher/device"
 
 module AppleSearcher
   class Configuration

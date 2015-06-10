@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["alekseenkoss@gmail.com"]
 
   if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "Parse additional information about Apple devises in Parser class."
+    spec.metadata['allowed_push_host'] = "Parse additional information about Apple devices in Parser class."
   end
 
   spec.license       = "MIT"

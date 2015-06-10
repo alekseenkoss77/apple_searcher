@@ -1,8 +1,7 @@
 module AppleSearcher
   class Parser
-    attr_reader :document
-
-    attr_accessor :warranty, :expired_date, :errors
+    attr_reader :document, :warranty, :expired_date,
+                :errors, :status
 
     def initialize(html)
       @errors = []
@@ -26,12 +25,12 @@ module AppleSearcher
       check_presence_imei
     end
 
+    # method find information abount
+    # hardware warranty of device.
     def hardware_warranty_info
       return false unless valid?
-      # firstly check active warranty
-      # find JavaScript code string with Hardware Warranty info      
+
       hw_rg = document.match(/warrantycheck\.displayHWSupportInfo\((.*)\)/)
-      # next - find true or false (the first argument)
       status = hw_rg[1].split(',')[0]
       expired_info = hw_rg[1].match(/Date:\s*(.*)<br\/>/)
       @expired_date = expired_info[1] unless expired_info.nil?
@@ -45,6 +44,7 @@ module AppleSearcher
         @warranty = false 
         @status = 'Out of Warranty'
       end
+
       self
     end
 

@@ -2,7 +2,7 @@ require 'faraday'
 require 'faraday-cookie_jar'
 
 module AppleSearcher
-  class Devise
+  class Device
     attr_reader :imei, :connect
 
     def initialize(imei)
@@ -15,8 +15,8 @@ module AppleSearcher
     end
 
     def self.find(sn)
-      devise = new(sn)
-      parser = devise.find_by_imei
+      device = new(sn)
+      parser = device.find_by_imei
       return nil unless parser.valid?
       parser
     end
